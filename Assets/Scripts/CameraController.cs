@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour, IManagement
 {
+    public Cinemachine.CinemachineFreeLook thirdPerson;
+    public Cinemachine.CinemachineFreeLook aim;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -17,7 +20,13 @@ public class CameraController : MonoBehaviour, IManagement
 
     public void MFixedUpdate()
     {
-        
+        if (Input.GetMouseButton(1))
+        {
+            aim.Priority = 11;
+        } else
+        {
+            aim.Priority = 9;
+        }
     }
 
     public void MLateUpdate()
